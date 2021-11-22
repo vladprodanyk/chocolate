@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<style>
+/* повна версвя сайту */
+body {
+	background-color: #443A29;
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+.content {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+.main {
+  float:left;
+  width:60%;
+  padding:0 20px;
+	color:#fff;
+}
+.content h2 {
+	font-size: 30px;
+	text-align:center;
+	margin-top:0;
+	color:#fff;
+}
+.main img {
+	max-width: 100%;
+}
+.right {
+  border-radius: 10px;
+  background-color:#e5e5e5;
+  float:right;
+  width:30%;
+  padding:15px;
+  margin-top:7px;
+  text-align:center;
+}
+.toggle,
+[id^=drop] {
+	display: none;
+}
+nav {
+	margin:0;
+	padding: 0;
+}
+#logo {
+	color: #fff;
+	display: block;
+	padding: 0 30px;
+	float: left;
+	font-size:20px;
+	line-height: 60px;
+}
+nav:after {
+	content:"";
+	display:table;
+	clear:both;
+}
+nav ul {
+	float: right;
+	padding:0;
+	margin:0;
+	list-style: none;
+	position: relative;
+}
+nav ul li {
+	margin: 0px;
+	display:inline-block;
+	float: left;
+}
+nav a {
+	display:block;
+	padding:14px 20px;
+	color:#FFF;
+	font-size:17px;
+	text-decoration:none;
+}
+nav ul li ul li {
+	background-color: #254441;
+}
+nav ul li ul li:hover {
+	background: #000000;
+}
+nav a:hover {
+	background-color: #000000;
+}
+nav ul ul {
+	display: none;
+	position: absolute;
+}
+nav ul li:hover > ul {
+	display:inherit;
+}
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	left:170px;
+}
+li > a:after { content:  ' +'; }
+li > a:only-child:after { content: ''; }
+.footer {
+	color: #fff;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+/* мобільна версія responsive */
+
+@media all and (max-width : 768px) {
+	#logo {
+
+	}
+	nav {
+		margin: 0;
+	}
+	.toggle + a,
+	.menu {
+		display: none;
+	}
+	.toggle {
+		display: block;
+		background-color: #254441;
+		padding:15px 30px;
+		color:#FFF;
+		font-size:17px;
+		text-decoration:none;
+		border:none;
+		float: right;
+	}
+	.toggle:hover {
+		background-color: #000000;
+	}
+	[id^=drop]:checked + ul {
+		display: block;
+	}
+	nav ul li {
+		display: block;
+		width: 100%;
+		}
+	nav ul ul .toggle,
+	nav ul ul a {
+		padding: 0 40px;
+	}
+	nav ul ul ul a {
+		padding: 0 80px;
+	}
+	nav a:hover,
+ 	nav ul ul ul a {
+		background-color: #000000;
+	}
+	nav ul li ul li .toggle,
+	nav ul ul a,
+  nav ul ul ul a{
+		padding:14px 20px;
+		color:#FFF;
+		font-size:17px;
+	}
+	nav ul li ul li .toggle,
+	nav ul ul a {
+		background-color: #212121;
+	}
+	nav ul ul {
+		float: none;
+		position:static;
+		color: #ffffff;
+	}
+	nav ul ul li:hover > ul,
+	nav ul li:hover > ul {
+		display: none;
+	}
+	nav ul ul li {
+		display: block;
+		width: 100%;
+	}
+	nav ul ul ul li {
+		position: static;
+	}
+}
+
+@media all and (max-width : 330px) {
+	nav ul li {
+		display:block;
+		width: 94%;
+	}
+}
+@media only screen and (max-width:713px) {
+  .main, .right {
+    width:100%;
+		float:none;
+		padding:0;
+  }
+}
+
+/* галерея */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+	justify-content: center;
+}
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Зворотній зв’язок */
+form {
+	padding: 10px;
+}
+form label {
+	color: #fff;
+	width: 115px;
+	display: inline-block;
+	text-align: left;
+}
+form input, form textarea {
+	width: 200px;
+}
+p.success {
+	color: lightgreen;
+}
+
+@media screen and (max-width: 600px) {
+  form label, form input, form textarea {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+<body>
+<nav>
+<div id="logo">Ресторан "Шоколад"</div>
+<label for="drop" class="toggle">Меню</label>
+<input type="checkbox" id="drop" />
+		<ul class="menu">
+				<li><a href="/index.html">Головна</a></li>
+				<li>
+				<label for="drop-2" class="toggle">Послуги +</label>
+				<a href="/plans.html">Послуги</a>
+				<input type="checkbox" id="drop-2"/>
+				<ul>
+						<li><a href="#">Весілля</a></li>
+						<li>
+						<label for="drop-3" class="toggle">Індивідуальні замовлення +</label>
+						<a href="#">Індивідуальні замовлення</a>
+						<input type="checkbox" id="drop-3"/>
+						<ul>
+								<li><a href="#">Корпоративи</a></li>
+						</ul>
+						</li>
+				</ul>
+				</li>
+				<li><a href="/gallery.html">Фотогалерея</a></li>
+				<li><a href="/contactus.html">Контакти</a></li>
+				<li><a href="/video.html">Про Нас</a></li>
+		</ul>
+</nav>
+<div class="content">
+<h2>Зворотній зв’язок</h2>
+<form action="/contactus_success.html" method="post">
+<p>
+	<label for="name">Ім’я:</label>
+	<input type="text" id="name" name="name">
+</p>
+<p>
+	<label for="email">Email:</label>
+	<input type="email" id="email" name="email">
+</p>
+<p>
+	<label for="subject">Тема:</label>
+	<input type="text" id="subject" name="subject">
+</p>
+<p>
+	<label for="message">Повідомлення:</label>
+	<textarea id="message" name="message"></textarea>
+</p>
+<p>
+	<input type="submit" value="Відправити">
+</p>
+</form>
+</div>
+<div class="footer">© Ресторан "Шоколад" 2021</div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ4LJ0BTJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WLQ4LJ0BTJ');
+</script>
+</body>
+</html>
